@@ -5,3 +5,5 @@
 . Create Layout.tsx and give wrap in <Layout> <Component {...pageProps}/> <Layout/> in _app.tsx
 
 . config Layout.tsx
+
+. create Utils/data.ts with data model type

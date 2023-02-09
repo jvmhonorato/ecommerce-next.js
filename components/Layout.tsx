@@ -31,8 +31,8 @@ const Layout = ({title, children}:any) => {
               {children}
             </main>
             <footer className="flex h-10 justify-center items-center shadow-inner">
-                footer
-            </footer>
+                <p className="font-semibold"><span>Copyright</span> &copy; 2023 Outfit Store</p>
+             </footer>
         </div>
         </>
     )
