@@ -1,4 +1,4 @@
-interface productProps{
+interface ProductInterface{
         product:{
         name?: string;
         slug?: string;
@@ -14,4 +14,4 @@ interface productProps{
     
         
     }
-export default productProps
+export default ProductInterface

@@ -1,28 +1,14 @@
 
 
+import ProductInterface from "@/model/ProductInterface";
 import Link from "next/link";
 import React from "react";
 
-interface ProductProps{
-    product:{
-    name?: string;
-    slug?: string;
-    category?: string;
-    image?: string;
-    price?: number;
-    brand?: string;
-    rating?: number;
-    numReviews?: number;
-    countInStock?: number;
-    description?: string;
-    }
 
-    
-}
 
 
 //paramater {product} will be turn the object product come fomr data.ts
-const ProductItem = ({product}:ProductProps) => {
+const ProductItem = ({product}:ProductInterface) => {
     return(
         <div className="card">
             <Link href={`/product/${product.slug}`}>
