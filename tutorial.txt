@@ -1,0 +1,7 @@
+. npx create-next-app@lastest --typescript 
+
+. Install Tailwind in Next
+
+. Create Layout.tsx and give wrap in <Layout> <Component {...pageProps}/> <Layout/> in _app.tsx
+
+. config Layout.tsx
