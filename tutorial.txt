@@ -8,6 +8,12 @@
 
 . create Utils/data.ts with data model type 
 
-.add images in public/images
+. add images in public/images
 
 . building component/ProductItem.tsx and add data path in all elements
+
+. Create model/interface to the Products
+
+. use @apply to apply tailwind in css class in global.css
+ 
+. 
