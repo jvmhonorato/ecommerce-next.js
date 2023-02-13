@@ -16,4 +16,6 @@
 
 . use @apply to apply tailwind in css class in global.css
  
-. 
+. create product/[slug].tsx and apply the logic in .find() to  redirect item to slug page
+
+. instal:  npm i -D @types/react     

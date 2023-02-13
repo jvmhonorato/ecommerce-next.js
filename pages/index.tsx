@@ -2,7 +2,7 @@ import ProductItem from '@/components/ProductItem';
 import data from '@/utils/data';
 import React from 'react';
 
-export default function Home() {
+const Home = () => {
   return (
     <> 
      <h1 className="text-3xl font-bold ">Home Page</h1>
@@ -14,4 +14,5 @@ export default function Home() {
     
     </>
   )
-}
+} 
+export default Home
