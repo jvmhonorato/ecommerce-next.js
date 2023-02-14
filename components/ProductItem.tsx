@@ -7,7 +7,7 @@ import React from "react";
 
 
 
-//paramater {product} will be turn the object product come fomr data.ts
+//paramater {product} will be turn the object product come from data.ts
 const ProductItem = ({product}:ProductInterface) => {
     return(
         <div className="card">
@@ -24,7 +24,7 @@ const ProductItem = ({product}:ProductInterface) => {
              </Link>
              <p className="mb-2">{product.brand}</p>
              <p>R${product.price}</p>
-             <button className="primary-button">Add to Cart</button>
+             <button className="primary-button mt-2">Add to Cart</button>
             </div>
         </div>
     )

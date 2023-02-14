@@ -16,5 +16,5 @@ body{
     @apply mb-5 block rounded-lg border-gray-200 shadow-md
 }
 .primary-button{
-   @apply rounded bg-amber-300 mt-2 py-2 px-4 shadow outline-none hover:bg-amber-400 active:bg-amber-500
+   @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400 active:bg-amber-500
 }

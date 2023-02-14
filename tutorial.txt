@@ -16,6 +16,14 @@
 
 . use @apply to apply tailwind in css class in global.css
  
-. create product/[slug].tsx and apply the logic in .find() to  redirect item to slug page
+. Create product/[slug].tsx and apply the logic in .find() to  redirect item to slug page
 
-. instal:  npm i -D @types/react     
+. instal:  npm i -D @types/react
+
+
+  USECONTEXT AND REDUCE
+
+. Add utils/Store.tsx and create function reduce and createContext mix both and export to _app.tsx  and wrap 
+<StoreProvider><Component {...pageProps} /></StoreProvider> in _app.tsx
+
+. In [slug].tsx import StoreContext and create a function to add product in Cart,  use it and set this function in onClick event 
