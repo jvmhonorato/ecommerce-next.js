@@ -1,9 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
+import React, { useContext } from "react";
+import { StoreContext } from '../utils/Store'
 
-import React from "react";
+
 
 const Layout = ({title, children}:any) => {
+    const { state, dispatch } = useContext(StoreContext)
+    const { cart } = state
+    
     return(
         <>
           <Head>
@@ -15,11 +20,16 @@ const Layout = ({title, children}:any) => {
             <header>
                 <nav className="flex h-12 justify-between shadow-md items-center">
                     <Link href="/">
-                        <p className="text-lg pl-2 font-bold">Outfit Store</p>
+                        <p className="text-lg pl-2 font-bold">Outfit Store {cart.cartItems.length}</p>
                     </Link>
-                    <div className="flex">                   
+                    <div className="flex"> 
+                                    
                     <Link href="/cart">
-                        <p className="p-2">Cart</p>
+                        <p className="p-2">Cart{cart.cartItems.length > 0 && (
+                            <span className="ml-1 rounded-full bg-red-600 px-2 text-xs font-bold text-white">
+                                {cart.cartItems.reduce((a:any,c:any)=> a + c.quantity,0)}
+                             </span>
+                        )}</p>
                     </Link>
                     <Link href="/login">
                        <p className="p-2">Login</p> 

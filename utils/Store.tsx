@@ -1,11 +1,16 @@
-import { createContext, useReducer} from "react";
-
- const StoreContext = createContext<any>(null);
+import { createContext, useReducer , Dispatch} from "react";
 
 const initialState = {
     cart:{ cartItems: []},
 
 }
+
+ const StoreContext = createContext<any>({
+    state: initialState,
+    dispatch: () =>  null,
+ });
+
+
 
 function reducer(state:any, action:any){
     switch (action.type){ 
@@ -14,8 +19,7 @@ function reducer(state:any, action:any){
             const existItem = state.cart.cartItems.find(
                 (item:any) => item.slug === newItem.slug
             )
-            const cartItems = existItem
-            ? state.cart.cartItems.map((item:any)=>
+            const cartItems = existItem? state.cart.cartItems.map((item:any)=>
             item.name === existItem.name ? newItem : item
             )
             : [...state.cart.cartItems, newItem];
@@ -26,9 +30,9 @@ function reducer(state:any, action:any){
      }
     }
 
-    const StoreProvider = ({children}:any) => {
+   function StoreProvider({children}:any){
     const [state, dispatch] = useReducer(reducer, initialState)
     const value =  {state, dispatch};
     return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
 }
-export {StoreProvider, StoreContext}
+export { StoreContext, StoreProvider}

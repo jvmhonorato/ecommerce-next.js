@@ -16,7 +16,9 @@ const ProductScreen = () => {
 
     }
     const addToCartHandler = () => {
+        
         dispatch({ type: 'CART_ADD_ITEM', payload: {...product, quantity: 1}});
+        console.log(state.cart)
     }
     return(
         <> 
@@ -57,6 +59,7 @@ const ProductScreen = () => {
                     </div>
                     <button onClick={addToCartHandler} className="primary-button w-full ">Add to cart</button>
                     </div>
+                    
                 </div>
               </div>
           

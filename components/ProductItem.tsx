@@ -2,13 +2,21 @@
 
 import ProductInterface from "@/model/ProductInterface";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import { StoreContext } from '../utils/Store'
 
 
 
 
 //paramater {product} will be turn the object product come from data.ts
 const ProductItem = ({product}:ProductInterface) => {
+    const {state, dispatch } = useContext(StoreContext)
+    const { cart } = state
+    const addToCartHandler = () => {
+        
+        dispatch({ type: 'CART_ADD_ITEM', payload: {...product, quantity: 1}});
+        console.log(cart.cartItems.length)
+    }
     return(
         <div className="card">
             <Link href={`/product/${product.slug}`}>
@@ -24,8 +32,9 @@ const ProductItem = ({product}:ProductInterface) => {
              </Link>
              <p className="mb-2">{product.brand}</p>
              <p>R${product.price}</p>
-             <button className="primary-button mt-2">Add to Cart</button>
+             <button onClick={addToCartHandler} className="primary-button mt-2">Add to Cart</button>
             </div>
+            
         </div>
     )
 }
