@@ -1,24 +1,31 @@
 . npx create-next-app@lastest --typescript 
 
+TAILWIND
 . Install Tailwind in Next
+. use @apply to apply tailwind in css class in global.css
 
+
+LAYOUT
 . Create Layout.tsx and give wrap in <Layout> <Component {...pageProps}/> <Layout/> in _app.tsx
-
+ OBS: u can let Layout with unic title in _app.tsx or wrap ever each page with <Layou title="page's title"><content></Layou>
 . config Layout.tsx
 
-. create Utils/data.ts with data model type 
 
+DATA BANK
+. create Utils/data.ts with data model type 
 . add images in public/images
 
-. building component/ProductItem.tsx and add data path in all elements
 
+COMPONENT PRODUCT 
+. building component/ProductItem.tsx and add data path in all elements
 . Create model/interface to the Products
 
-. use @apply to apply tailwind in css class in global.css
- 
+
+
+ CREATE DINAMYC PRODUCT PAGE 
 . Create product/[slug].tsx and apply the logic in .find() to  redirect item to slug page
 
-. instal:  npm i -D @types/react
+. install:  npm i -D @types/react
 
 
   USECONTEXT AND REDUCE
@@ -31,3 +38,6 @@
 
 ADD PRODUCT IN CART 
 . In "ProductItem.tsx" and "[slug].tsx" add logic using state in  function addToCartHandler() to add item from same product
+
+CART PAGE 
+. create page/cart.tsx 
