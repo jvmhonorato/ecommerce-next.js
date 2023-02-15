@@ -11,11 +11,13 @@ import { StoreContext } from '../utils/Store'
 //paramater {product} will be turn the object product come from data.ts
 const ProductItem = ({product}:ProductInterface) => {
     const {state, dispatch } = useContext(StoreContext)
-    const { cart } = state
+    
     const addToCartHandler = () => {
+        //logic to add same iten to Cart
+        const existItem = state.cart.cartItems.find((x:any) => x.slug === product.slug)
+        const quantity = existItem ? existItem.quantity + 1 : 1;
+        dispatch({ type: 'CART_ADD_ITEM', payload: {...product, quantity  }});
         
-        dispatch({ type: 'CART_ADD_ITEM', payload: {...product, quantity: 1}});
-        console.log(cart.cartItems.length)
     }
     return(
         <div className="card">

@@ -27,4 +27,7 @@
 <StoreProvider><Layout><Component {...pageProps} /></Layout></StoreProvider> in _app.tsx
 
 . In [slug].tsx import StoreContext to use "DISPATCH" and create a function to add product in Cart,  use it and set this function in onClick event 
-. In Layout.tsx import StoreContext to use "STATE" destructure the {cart} and create logic to render the length of producte beside of Cart in header
+. In Layout.tsx import StoreContext to use "STATE" destructure the {cart} and create logic to render the length of product beside of Cart in header
+
+ADD PRODUCT IN CART 
+. In "ProductItem.tsx" and "[slug].tsx" add logic using state in  function addToCartHandler() to add item from same product
