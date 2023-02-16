@@ -1,8 +1,10 @@
-import { createContext, useReducer , Dispatch} from "react";
+import { createContext, useReducer } from "react";
+
+import Cookies from 'js-cookie'
+const cgc:any = Cookies.get('cart')
 
 const initialState = {
-    cart:{ cartItems: []},
-
+    cart: Cookies.get('cart') ? JSON.parse(cgc) : { cartItems: [] } ,
 }
 
  const StoreContext = createContext<any>({
@@ -33,7 +35,7 @@ function reducer(state:any, action:any){
         }
             default: 
             return state;
-     }
+      }
     }
 
    function StoreProvider({children}:any){

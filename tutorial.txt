@@ -45,3 +45,14 @@ CART PAGE
 . create page/cart.tsx 
 . install react icons: 'npm install react-icons --save'
 . import icon from: https://react-icons.github.io/react-icons
+. create functions using reduce to use in onclick event in button and use in <select> tag
+
+
+SAVE CART IN COOKIES 
+. install cookies: npm install js-cookie
+. install too: npm install @types/js-cookie
+
+
+
+
+
