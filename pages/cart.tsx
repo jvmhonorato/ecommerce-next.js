@@ -3,15 +3,21 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { HiOutlineXCircle } from "react-icons/hi";
+import { useRouter } from 'next/router';
 
 
 const CartScreen = () => {
+    const router = useRouter();
     const {state, dispatch} = useContext(StoreContext);
     const {
         cart: {cartItems},
     } = state
     const removeItemHandler = (item:any) => {
         dispatch({ type: 'CART_REMOVE_ITEM', payload:item})
+    }
+    const updateCartHandler = (item:any, qty:any) => {
+        const quantity = Number(qty);
+        dispatch({type:'CART_ADD_ITEM', payload:{...item, quantity}})
     }
     return(
         <>
@@ -54,7 +60,15 @@ const CartScreen = () => {
                                                 
                                                 </Link>  
                                               </td> 
-                                              <td className='p-5 text-right'>{item.quantity}</td> 
+                                              <td className='p-5 text-right'>
+                                                <select value={item.quantity} onChange={(e) => updateCartHandler(item, e.target.value)}>
+                                                {
+                                                    [...Array(item.countInStock).keys() ].map(x => (
+                                                        <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                                    ))
+                                                }
+                                                </select>
+                                              </td> 
                                               <td className='p-5 text-right'>R${item.price}</td>
                                               <td className='p-5 text-right'>
                                                 <button onClick={() => removeItemHandler(item)}>
@@ -77,7 +91,9 @@ const CartScreen = () => {
                                     </div>
                                 </li>
                                 <li>
-                                    <button className='primary-button w-full'>Check Out</button>
+                                    <button onClick={() => router.push('/shipping')} className='primary-button w-full'>
+                                        Check Out
+                                    </button>
                                 </li>
                             </ul>            
                         </div>
