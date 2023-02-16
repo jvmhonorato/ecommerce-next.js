@@ -33,6 +33,8 @@ COMPONENT PRODUCT
 . Add utils/Store.tsx and create function reduce and createContext mix both and export to _app.tsx  and wrap 
 <StoreProvider><Layout><Component {...pageProps} /></Layout></StoreProvider> in _app.tsx
 
+. In function Reduce put the all actions to manage item in CART as 'CART_REMOVE_ITEM' and 'CART_ADD_ITEM'
+
 . In [slug].tsx import StoreContext to use "DISPATCH" and create a function to add product in Cart,  use it and set this function in onClick event 
 . In Layout.tsx import StoreContext to use "STATE" destructure the {cart} and create logic to render the length of product beside of Cart in header
 
@@ -41,3 +43,5 @@ ADD PRODUCT IN CART
 
 CART PAGE 
 . create page/cart.tsx 
+. install react icons: 'npm install react-icons --save'
+. import icon from: https://react-icons.github.io/react-icons

@@ -2,12 +2,17 @@ import { StoreContext } from '../utils/Store';
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { HiOutlineXCircle } from "react-icons/hi";
+
 
 const CartScreen = () => {
     const {state, dispatch} = useContext(StoreContext);
     const {
         cart: {cartItems},
     } = state
+    const removeItemHandler = (item:any) => {
+        dispatch({ type: 'CART_REMOVE_ITEM', payload:item})
+    }
     return(
         <>
         <div>
@@ -52,8 +57,8 @@ const CartScreen = () => {
                                               <td className='p-5 text-right'>{item.quantity}</td> 
                                               <td className='p-5 text-right'>R${item.price}</td>
                                               <td className='p-5 text-right'>
-                                                <button>
-                                                    
+                                                <button onClick={() => removeItemHandler(item)}>
+                                                   <HiOutlineXCircle></HiOutlineXCircle>
                                                 </button>
                                                 </td>  
                                         </tr>
@@ -61,9 +66,9 @@ const CartScreen = () => {
                                 </tbody>
                             </table>
                         </div>
+                  
                     </div>
-                  )
-            }
+                  )}
         </div>
         </>
     )

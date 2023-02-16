@@ -7,6 +7,7 @@ import Image from "next/image";
 import { StoreContext } from '../../utils/Store'
 
 const ProductScreen = () => {
+    const router = useRouter()
     const {state, dispatch } = useContext(StoreContext)
     const { query } = useRouter();
     const { slug } = query;
@@ -19,8 +20,14 @@ const ProductScreen = () => {
         //logic to add same iten to Cart
         const existItem = state.cart.cartItems.find((x:any) => x.slug === product.slug)
         const quantity = existItem ? existItem.quantity + 1 : 1;
+
+        if (product.countInStock < quantity){
+            alert('Sorry. Product is out of stock');
+            return;
+        }
         dispatch({ type: 'CART_ADD_ITEM', payload: {...product, quantity  }});
-        //console.log(state.cart)
+        router.push('/cart')
+         
     }
     return(
         <> 

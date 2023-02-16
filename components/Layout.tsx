@@ -20,7 +20,7 @@ const Layout = ({title, children}:any) => {
             <header>
                 <nav className="flex h-12 justify-between shadow-md items-center">
                     <Link href="/">
-                        <p className="text-lg pl-2 font-bold">Outfit Store {cart.cartItems.length}</p>
+                        <p className="text-lg pl-2 font-bold">Outfit Store</p>
                     </Link>
                     <div className="flex"> 
                                     
