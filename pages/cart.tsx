@@ -66,7 +66,21 @@ const CartScreen = () => {
                                 </tbody>
                             </table>
                         </div>
-                  
+                        <div className='card p-5 text-xl text-center'>
+                            <ul>
+                                <li>
+                                    <div className='pb-3'>
+                                          Subtotal ({cartItems.reduce((a:any,c:any) => a + c.quantity, 0)}) 
+                                          {''}
+                                          : R$
+                                          {cartItems.reduce((a:any,c:any) => a + c.quantity * c.price, 0)}
+                                    </div>
+                                </li>
+                                <li>
+                                    <button className='primary-button w-full'>Check Out</button>
+                                </li>
+                            </ul>            
+                        </div>
                     </div>
                   )}
         </div>
