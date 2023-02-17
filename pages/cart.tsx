@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { HiOutlineXCircle } from "react-icons/hi";
 import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
 
 const CartScreen = () => {
@@ -104,4 +105,4 @@ const CartScreen = () => {
     )
 }
 
-export default CartScreen
+export default dynamic(()=> Promise.resolve(CartScreen), {ssr:false})

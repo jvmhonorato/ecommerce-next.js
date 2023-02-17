@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { StoreContext } from '../utils/Store'
 
 
@@ -8,6 +8,11 @@ import { StoreContext } from '../utils/Store'
 const Layout = ({title, children}:any) => {
     const { state, dispatch } = useContext(StoreContext)
     const { cart } = state
+    console.log(state)
+    const [cartItemsCount, setCartItemsCount] = useState(0)
+    useEffect(()=>{
+        setCartItemsCount(cart.cartItems.reduce((a:any,c:any)=> a + c.quantity,0))
+    },[cart.cartItems]) 
     
     return(
         <>
@@ -25,9 +30,9 @@ const Layout = ({title, children}:any) => {
                     <div className="flex"> 
                                     
                     <Link href="/cart">
-                        <p className="p-2">Cart{cart.cartItems.length > 0 && (
+                        <p className="p-2">Cart{cartItemsCount > 0 && (
                             <span className="ml-1 rounded-full bg-red-600 px-2 text-xs font-bold text-white">
-                                {cart.cartItems.reduce((a:any,c:any)=> a + c.quantity,0)}
+                                {cartItemsCount}
                              </span>
                         )}</p>
                     </Link>
