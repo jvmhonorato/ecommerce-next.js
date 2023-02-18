@@ -8,7 +8,6 @@ import { StoreContext } from '../utils/Store'
 const Layout = ({title, children}:any) => {
     const { state, dispatch } = useContext(StoreContext)
     const { cart } = state
-    console.log(state)
     const [cartItemsCount, setCartItemsCount] = useState(0)
     useEffect(()=>{
         setCartItemsCount(cart.cartItems.reduce((a:any,c:any)=> a + c.quantity,0))

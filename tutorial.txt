@@ -49,8 +49,16 @@ CART PAGE
 
 
 SAVE CART IN COOKIES 
-. install cookies: npm install js-cookie
+. install cookies: npm install js-cookie@2.2.1
 . install too: npm install @types/js-cookie
+. Store.tsx import and set cookies using Cookie.get and Cookie.set
+. In cart.tsx export compont use dynamic an Promise
+. In Layout.tsx apply the useState and useEffect to control the mult render in page
+. In eslintrc.json add: "env": {"browser":true, "node":true , "es6":true},
+
+
+CREATE LOGIN
+. create pages/login.tsx
 
 
 
