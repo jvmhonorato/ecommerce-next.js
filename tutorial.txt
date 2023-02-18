@@ -59,6 +59,7 @@ SAVE CART IN COOKIES
 
 CREATE LOGIN
 . create pages/login.tsx
+. buiding form in login.tsx
 
 
 
