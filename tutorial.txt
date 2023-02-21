@@ -60,7 +60,10 @@ SAVE CART IN COOKIES
 CREATE LOGIN
 . create pages/login.tsx
 . buiding form in login.tsx
-
+. to star building validation install: npm install react-hook-form  
+. npm install yup
+.npm install formik 
+. in login.tsx use useForm()
 
 
 
