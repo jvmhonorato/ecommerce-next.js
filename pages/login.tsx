@@ -1,27 +1,61 @@
 import Link from 'next/link'
 import React from 'react'
-import { useForm } from 'react-hook-form' 
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
+
+interface LoginFormValues {
+    email: string;
+    password: string;
+  }
+
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 characters')
+      .required('Password is required'),
+  });
+
+  const initialValues: LoginFormValues = {
+    email: '',
+    password: '',
+  };
+  
 
 const  LoginScreen = () => {
 
-    const {handleSubmit, register, formState:{errors},} = useForm();
-    const submitHandler = ({email, password}:any) => {
-        return
-    }
-    const errorMsg:any = errors.email?.message
+    const handleSubmit = (values: LoginFormValues) => {
+        // Submit login data to the server
+      };
+    
     
   return (
     <>
-     <form className='mx-auto max-w-screen-md' onSubmit={handleSubmit(submitHandler)}>
+        <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+     <Form  className='mx-auto max-w-screen-md' >
         <h1 className='mb-4 text-xl'>Login</h1>
         <div className='mb-4'>
             <label htmlFor='email'>Email</label>
-            <input type="email"
-            {...register('email',{required:'Please enter email',pattern:{value:/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i}} )} className='w-full' id='email' autoFocus></input>{errors.email && (<div className='text-red-500'>{errorMsg}</div>)}
+            <Field className='w-full' type="email" id="email" name="email" />
+            <div className='text-red-500'>
+                <ErrorMessage name="email" />
+            </div>
+            
+            
         </div>
         <div className='mb-4'>
             <label htmlFor='password'>Password</label>
-            <input type="password" className='w-full' id='password' autoFocus></input>
+            <Field className='w-full' type="password" id="password" name="password" />
+            <div className='text-red-500'>
+                <ErrorMessage  name="password" />
+            </div>
+            
         </div>
         <div className='mb-4'>
             <button className='primary-button'>Login</button>
@@ -30,7 +64,8 @@ const  LoginScreen = () => {
             Don&apos;t have an account? &nbsp;
             <Link href='register'>Register</Link>
         </div>
-     </form>
+      </Form>
+     </Formik>
     </>
   )
 }
