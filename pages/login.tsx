@@ -26,39 +26,40 @@ interface LoginFormValues {
 
 const  LoginScreen = () => {
 
-    const handleSubmit = (values: LoginFormValues) => {
+    const handleSubmit = ({email, password}: LoginFormValues) => {
         // Submit login data to the server
+        console.log(email, password)
       };
     
     
   return (
     <>
         <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-     <Form  className='mx-auto max-w-screen-md' >
-        <h1 className='mb-4 text-xl'>Login</h1>
-        <div className='mb-4'>
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+         >
+         <Form  className='mx-auto max-w-screen-md' >
+          <h1 className='mb-4 text-xl'>Login</h1>
+            <div className='mb-4'>
             <label htmlFor='email'>Email</label>
-            <Field className='w-full' type="email" id="email" name="email" />
+              <Field autoFocus className='w-full' type="email" id="email" name="email" />
             <div className='text-red-500'>
-                <ErrorMessage name="email" />
+            <ErrorMessage name="email" />
             </div>
             
-            
+       
         </div>
         <div className='mb-4'>
             <label htmlFor='password'>Password</label>
-            <Field className='w-full' type="password" id="password" name="password" />
+            <Field autoFocus className='w-full' type="password" id="password" name="password" />
             <div className='text-red-500'>
                 <ErrorMessage  name="password" />
             </div>
             
         </div>
         <div className='mb-4'>
-            <button className='primary-button'>Login</button>
+            <button type='submit' className='primary-button'>Login</button>
         </div>
         <div className='mb-4'>
             Don&apos;t have an account? &nbsp;
