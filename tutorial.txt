@@ -66,5 +66,17 @@ CREATE LOGIN
 . in login.tsx use useForm()
 
 
+CONNECT TO MONGODB 
+. create a new cluster 
+. set username and password
+. set ip 0.0.0.0/0   all
+. create new collections
+. create .env file and paste path mongodb_uri
+. test the connection data base using mongo db compass 
+. copy the address from .env and paste it in mongodb compass
+
+
+
+
 
 
