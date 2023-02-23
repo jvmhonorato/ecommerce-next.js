@@ -1,6 +1,6 @@
 
 
-import ProductInterface from "@/model/ProductInterface";
+import ProductInterface from "@/interfaces/ProductInterface";
 import Link from "next/link";
 import React, { useContext } from "react";
 import { StoreContext } from '../utils/Store'

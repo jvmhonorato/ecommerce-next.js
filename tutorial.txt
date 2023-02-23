@@ -67,13 +67,16 @@ CREATE LOGIN
 
 
 CONNECT TO MONGODB 
+. npm install mongodb  
 . create a new cluster 
 . set username and password
 . set ip 0.0.0.0/0   all
 . create new collections
 . create .env file and paste path mongodb_uri
 . test the connection data base using mongo db compass 
-. copy the address from .env and paste it in mongodb compass
+. copy the address from .env and paste it in mongodb compass to connect
+. install bcrypt :npm install bcrypt -g 
+. add users in data.ts
 
 
 
