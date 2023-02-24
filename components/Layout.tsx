@@ -5,6 +5,8 @@ import { StoreContext } from '../utils/Store'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import { useSession } from "next-auth/react";
+import { Menu } from '@headlessui/react'
+import DropdownLink from "./DropdownLink";
 
 
 
@@ -40,15 +42,26 @@ const Layout = ({title, children}:any) => {
                              </span>
                         )}</p>
                     </Link>
-                    <p className="p-2">{status === 'loading' ? (
+                    {status ===  'loading' ? (
                         'loading'
                         ) : session?.user ? (
-                            session.user.name
+                           <Menu as='div' className='relative inline-block p-2'>
+                             <Menu.Button className='text-blue-600'>
+                                {session.user.name}
+                             </Menu.Button>
+                             <Menu.Items className='absolute right-0 w-56 origin-top-right shadow-lg'>
+                                <Menu.Item>
+                                    <DropdownLink className='dropdown-link' href='/profile'>
+                                        Profile
+                                    </DropdownLink>
+                                </Menu.Item>
+                             </Menu.Items>
+                           </Menu>
                             ):(
                           <Link href="/login">
                           <p className="p-2">Login</p> 
                        </Link>
-                    )}</p>
+                    )}
                   
                     </div> 
                 </nav>

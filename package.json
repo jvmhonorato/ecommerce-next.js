@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.12",
     "@next/font": "13.1.6",
     "@types/js-cookie": "^3.0.2",
     "@types/react-dom": "18.0.10",

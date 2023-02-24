@@ -93,7 +93,7 @@ const  LoginScreen = () => {
         </div>
         <div className='mb-4'>
             Don&apos;t have an account? &nbsp;
-            <Link href='register'>Register</Link>
+            <Link className='text-indigo-600' href='register'>Register</Link>
         </div>
       </Form>
      </Formik>

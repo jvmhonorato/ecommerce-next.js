@@ -90,7 +90,38 @@ NEXT AUTH LOGIN
 . Import toast in Login.tsx
 . in _app.tsx wrap <Component> with <SessionProvider>
 . 
-. 
+
+ADD USER MENU 
+. access: headlessui.com
+. install: npm install @headlessui/react
+. import in Layout.tsx : import { Menu } from '@headlessui/react'
+. create: component/DropdownLink.tsx
+. and buiding the dropdown in Layout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
