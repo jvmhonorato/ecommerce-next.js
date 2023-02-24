@@ -83,6 +83,11 @@ CONNECT TO MONGODB
 NEXT AUTH LOGIN 
 . install : npm install next-auth
 . create : api/auth/[...nextauth].ts
+. add logic into Login.tsx handleSubmit()
+. create utils/erros.js with getError() and xport to Login.tsx
+. install: npm install react-toastify 
+. Import ToastContainer in Layout.tsx and apply
+. Import toast in Login.tsx
 
 
 
