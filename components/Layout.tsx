@@ -4,7 +4,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { StoreContext } from '../utils/Store'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { Menu } from '@headlessui/react'
 import DropdownLink from "./DropdownLink";
 
@@ -18,6 +18,9 @@ const Layout = ({title, children}:any) => {
     useEffect(()=>{
         setCartItemsCount(cart.cartItems.reduce((a:any,c:any)=> a + c.quantity,0))
     },[cart.cartItems]) 
+    const logoutClickHandler = () => {
+        signOut({callbackUrl: '/login'})
+    }
     
     return(
         <>
@@ -54,6 +57,19 @@ const Layout = ({title, children}:any) => {
                                     <DropdownLink className='dropdown-link' href='/profile'>
                                         Profile
                                     </DropdownLink>
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <DropdownLink className='dropdown-link' href='/order-history'>
+                                        Order History
+                                    </DropdownLink>
+                                </Menu.Item>
+                                <Menu.Item>
+                                    
+                                        <a className='dropdown-link' href='/#' onClick={logoutClickHandler} >
+                                            Logout
+                                        </a>
+                                        
+                                    
                                 </Menu.Item>
                              </Menu.Items>
                            </Menu>
