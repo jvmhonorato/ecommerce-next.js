@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { signOut, useSession } from "next-auth/react";
 import { Menu } from '@headlessui/react'
 import DropdownLink from "./DropdownLink";
+import Cookies from "js-cookie";
 
 
 
@@ -15,10 +16,15 @@ const Layout = ({title, children}:any) => {
     const { state, dispatch } = useContext(StoreContext)
     const { cart } = state
     const [cartItemsCount, setCartItemsCount] = useState(0)
+
     useEffect(()=>{
         setCartItemsCount(cart.cartItems.reduce((a:any,c:any)=> a + c.quantity,0))
     },[cart.cartItems]) 
+
+
     const logoutClickHandler = () => {
+        Cookies.remove('cart')
+        dispatch({ type:'CART_RESET' })
         signOut({callbackUrl: '/login'})
     }
     
