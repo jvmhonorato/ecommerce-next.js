@@ -1,16 +1,21 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import {signIn} from 'next-auth/react'
+import {signIn, useSession} from 'next-auth/react'
 import * as Yup from 'yup';
 import { getError } from '@/utils/error';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
+
 
 
 interface LoginFormValues {
     email: string;
     password: string;
   }
+  
+ 
+  
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -29,9 +34,19 @@ interface LoginFormValues {
 
 const  LoginScreen = () => {
 
+  const { data: session } = useSession()
+  const router = useRouter()
+  const { redirect }:any = router.query;
+
+  useEffect(() => {
+   if (session?.user){
+    router.push(redirect || '/')
+   }
+  }, [router, session, redirect]);
+
     const handleSubmit = async ({email, password}: LoginFormValues) => {
         // Submit login data to the server
-        //console.log(email, password)
+        
         try{
           const result:any = await signIn('credentials', {
             redirect: false,

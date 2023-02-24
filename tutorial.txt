@@ -86,8 +86,11 @@ NEXT AUTH LOGIN
 . add logic into Login.tsx handleSubmit()
 . create utils/erros.js with getError() and xport to Login.tsx
 . install: npm install react-toastify 
-. Import ToastContainer in Layout.tsx and apply
+. Import ToastContainer in Layout.tsx and apply status/useSession() in navBar
 . Import toast in Login.tsx
+. in _app.tsx wrap <Component> with <SessionProvider>
+. 
+. 
 
 
 

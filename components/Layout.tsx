@@ -3,10 +3,13 @@ import Link from "next/link";
 import React, { useContext, useState, useEffect } from "react";
 import { StoreContext } from '../utils/Store'
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import { useSession } from "next-auth/react";
 
 
 
 const Layout = ({title, children}:any) => {
+    const { status, data: session } = useSession();
     const { state, dispatch } = useContext(StoreContext)
     const { cart } = state
     const [cartItemsCount, setCartItemsCount] = useState(0)
@@ -37,9 +40,16 @@ const Layout = ({title, children}:any) => {
                              </span>
                         )}</p>
                     </Link>
-                    <Link href="/login">
-                       <p className="p-2">Login</p> 
-                    </Link>
+                    <p className="p-2">{status === 'loading' ? (
+                        'loading'
+                        ) : session?.user ? (
+                            session.user.name
+                            ):(
+                          <Link href="/login">
+                          <p className="p-2">Login</p> 
+                       </Link>
+                    )}</p>
+                  
                     </div> 
                 </nav>
             </header>
