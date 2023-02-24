@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {signIn} from 'next-auth/react'
 import * as Yup from 'yup';
 
 
@@ -26,9 +27,21 @@ interface LoginFormValues {
 
 const  LoginScreen = () => {
 
-    const handleSubmit = ({email, password}: LoginFormValues) => {
+    const handleSubmit = async ({email, password}: LoginFormValues) => {
         // Submit login data to the server
-        console.log(email, password)
+        //console.log(email, password)
+        try{
+          const result:any = await signIn('credentials', {
+            redirect: false,
+            email,
+            password,
+          });
+          if(result.error){
+            toast.error(result.error)
+          }
+        }catch(err){
+          toast.error(getError(err))
+        }
       };
     
     

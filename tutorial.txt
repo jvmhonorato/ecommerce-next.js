@@ -77,8 +77,12 @@ CONNECT TO MONGODB
 . copy the address from .env and paste it in mongodb compass to connect
 . install bcrypt :npm install bcrypt -g 
 . add users in data.ts
+. create api/seed.ts to text connection and call it in localhost:3000/api/seed 
+. open mongo compass to connection running
 
-
+NEXT AUTH LOGIN 
+. install : npm install next-auth
+. create : api/auth/[...nextauth].ts
 
 
 
