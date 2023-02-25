@@ -102,6 +102,8 @@ ADD USER MENU
 CREATE SHIPPING SCREEN 
 . create page/shipping.tsx
 . create components/CheckoutWizard.tsx
+. in shipping.tsx create a Form using Formik
+. add new case 'SAVE_SHIPPING_ADDRESS' in reduce in Store.tsx 
 
 
 

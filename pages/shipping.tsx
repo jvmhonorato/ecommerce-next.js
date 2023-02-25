@@ -1,7 +1,10 @@
 import CheckoutWizard from '@/components/CheckoutWizard'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { StoreContext } from '@/utils/Store';
+import Cookies from 'js-cookie';
+
 
 
 interface LoginFormValues {
@@ -14,13 +17,25 @@ interface LoginFormValues {
   }
 
  const ShippingScreen = () => {
-    const initialValues: LoginFormValues = {
+    const {state, dispatch } = useContext(StoreContext)
+    const { cart } = state
+    const { shippingAddress } = cart
+
+    useEffect(()=> {
+        setInitialValues( shippingAddress.fullName)
+        setInitialValues( shippingAddress.address)
+        setInitialValues( shippingAddress.city)
+        setInitialValues( shippingAddress.cep)
+        setInitialValues( shippingAddress.country)
+    },[shippingAddress])
+  
+    const [initialValues, setInitialValues] = useState( {
        fullName:'',
        address:'',
        city:'',
        cep:'',
        country:'',
-      };
+      });
 
     const validationSchema = Yup.object({
         fullName: Yup.string()
@@ -38,7 +53,24 @@ interface LoginFormValues {
                      
        });
 
-    const handleSubmit = async () => {}
+    const handleSubmit = async ({fullName, address, city, cep, country}:LoginFormValues ) => {
+        dispatch({
+            type: 'SAVE_SHIPPING_ADDRESS',
+            payload: { fullName, address, city, cep, country },
+        })
+        Cookies.set('cart',JSON.stringify({
+            ...cart
+            ,shippingAddress: {
+                fullName,
+                address,
+                city,
+                cep,
+                country
+                
+
+            },
+        }))
+    }
   return (
     <>
      <CheckoutWizard activeStep={1}/>
@@ -87,6 +119,9 @@ interface LoginFormValues {
                 </div>
                 
             </div>
+            <div className='mb-4 flex justify-between'>
+            <button type='submit' className='primary-button'>Next</button>
+        </div>
 
         </Form>
 

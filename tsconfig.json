@@ -22,6 +22,6 @@
     }
   },
   "allowSytheticDefaultImports": "true",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/db.js", "utils/data.ts", "pages/api/auth/[...nextauth].js", "utils/error.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/db.js", "utils/data.ts", "pages/api/auth/[...nextauth].js", "utils/error.js", "pages/_app.tsx"],
   "exclude": ["node_modules"]
 }
