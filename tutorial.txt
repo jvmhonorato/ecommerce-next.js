@@ -89,7 +89,7 @@ NEXT AUTH LOGIN
 . Import ToastContainer in Layout.tsx and apply status/useSession() in navBar
 . Import toast in Login.tsx
 . in _app.tsx wrap <Component> with <SessionProvider>
-. 
+. in _app.tsx create <Auth/> and create  conditional to envolve <Component/> case user be logged
 
 ADD USER MENU 
 . access: headlessui.com
@@ -104,6 +104,8 @@ CREATE SHIPPING SCREEN
 . create components/CheckoutWizard.tsx
 . in shipping.tsx create a Form using Formik
 . add new case 'SAVE_SHIPPING_ADDRESS' in reduce in Store.tsx 
+. add: ShippingScreen.auth = true in shipping.tsx 
+. add  shippingAddress: {} in initialState in Store.tsx
 
 
 

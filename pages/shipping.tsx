@@ -130,4 +130,5 @@ interface LoginFormValues {
   )
 }
 
+ShippingScreen.auth = true;
 export default ShippingScreen
