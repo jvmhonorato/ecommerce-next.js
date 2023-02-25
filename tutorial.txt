@@ -7,7 +7,7 @@ TAILWIND
 
 LAYOUT
 . Create Layout.tsx and give wrap in <Layout> <Component {...pageProps}/> <Layout/> in _app.tsx
- OBS: u can let Layout with unic title in _app.tsx or wrap ever each page with <Layou title="page's title"><content></Layou>
+ OBS: u can let Layout with unic title in _app.tsx or wrap ever each page with <Layout title="page's title"><content></Layout>
 . config Layout.tsx
 
 
@@ -84,7 +84,7 @@ NEXT AUTH LOGIN
 . install : npm install next-auth
 . create : api/auth/[...nextauth].ts
 . add logic into Login.tsx handleSubmit()
-. create utils/erros.js with getError() and xport to Login.tsx
+. create utils/erros.js with getError() and export to Login.tsx
 . install: npm install react-toastify 
 . Import ToastContainer in Layout.tsx and apply status/useSession() in navBar
 . Import toast in Login.tsx
@@ -99,7 +99,9 @@ ADD USER MENU
 . and buiding the dropdown in Layout
 
 
-
+CREATE SHIPPING SCREEN 
+. create page/shipping.tsx
+. create components/CheckoutWizard.tsx
 
 
 

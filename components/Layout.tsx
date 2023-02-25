@@ -52,7 +52,7 @@ const Layout = ({title, children}:any) => {
                         )}</p>
                     </Link>
                     {status ===  'loading' ? (
-                        'loading'
+                        ''
                         ) : session?.user ? (
                            <Menu as='div' className='relative inline-block p-2'>
                              <Menu.Button className='text-blue-600'>
