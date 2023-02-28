@@ -19,7 +19,7 @@ const ShippingScreen = () => {
     const { cart } = state
     const { shippingAddress } = cart
 
-    const { handleSubmit, register, formState: {errors}, setValue, getValues} = useForm<FormValues>()
+    const { handleSubmit, register, formState: {errors}, setValue} = useForm<FormValues>()
 
 
     useEffect(()=> {
