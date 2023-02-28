@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '@/utils/Store';
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
 
 
 
@@ -17,6 +18,7 @@ interface LoginFormValues {
   }
 
  const ShippingScreen = () => {
+    const router = useRouter()
     const {state, dispatch } = useContext(StoreContext)
     const { cart } = state
     const { shippingAddress } = cart
@@ -70,6 +72,7 @@ interface LoginFormValues {
 
             },
         }))
+        router.push('/payment')
     }
   return (
     <>

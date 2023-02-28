@@ -108,6 +108,12 @@ CREATE SHIPPING SCREEN
 . add  shippingAddress: {} in initialState in Store.tsx
 
 
+CREATE UNAUTHORIZED PAGE
+. create page/unauthorized.tsx to redirect when the user logged out.
+.in shipping.tsx add after cookies.set  
+router.push('/payment')
+
+
 
 
 
