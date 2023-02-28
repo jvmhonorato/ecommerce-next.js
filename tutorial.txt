@@ -113,6 +113,8 @@ CREATE UNAUTHORIZED PAGE
 .in shipping.tsx add after cookies.set  
 router.push('/payment')
 
+PAYMENT METHOD 
+. create page/payment.tsx 
 
 
 

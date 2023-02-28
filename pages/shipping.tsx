@@ -1,61 +1,36 @@
 import CheckoutWizard from '@/components/CheckoutWizard'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup';
-import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '@/utils/Store';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
+import React, { useContext, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 
-
-
-interface LoginFormValues {
+type FormValues = {
     fullName: string;
     address: string;
     city: string;
     cep: string;
     country: string;
-    
-  }
+  };
 
- const ShippingScreen = () => {
+const ShippingScreen = () => {
     const router = useRouter()
     const {state, dispatch } = useContext(StoreContext)
     const { cart } = state
     const { shippingAddress } = cart
 
+    const { handleSubmit, register, formState: {errors}, setValue, getValues} = useForm<FormValues>()
+
+
     useEffect(()=> {
-        setInitialValues( shippingAddress.fullName)
-        setInitialValues( shippingAddress.address)
-        setInitialValues( shippingAddress.city)
-        setInitialValues( shippingAddress.cep)
-        setInitialValues( shippingAddress.country)
-    },[shippingAddress])
-  
-    const [initialValues, setInitialValues] = useState( {
-       fullName:'',
-       address:'',
-       city:'',
-       cep:'',
-       country:'',
-      });
+        setValue('fullName',shippingAddress.fullName)
+        setValue('address',shippingAddress.address)
+        setValue('city',shippingAddress.city)
+        setValue('cep',shippingAddress.cep)
+        setValue('country',shippingAddress.country)
+    },[setValue, shippingAddress])
 
-    const validationSchema = Yup.object({
-        fullName: Yup.string()
-                     .required('Full Name is Required'),
-        address: Yup.string()
-                     .required('Address is Required')
-                     .min(3, 'Address must be at least 3 characters'),
-        city: Yup.string()
-                     .required('Please enter City'),
-         cep: Yup.string()
-                     .matches(/^[0-9]{5}-[0-9]{3}$/,'Format: 00000-000')
-                     .required('CEP is Required'),
-        country: Yup.string()
-                     .required('Please enter Country')
-                     
-       });
-
-    const handleSubmit = async ({fullName, address, city, cep, country}:LoginFormValues ) => {
+    const submitHandler = async ({fullName, address, city, cep, country}:FormValues ) => {
         dispatch({
             type: 'SAVE_SHIPPING_ADDRESS',
             payload: { fullName, address, city, cep, country },
@@ -73,62 +48,54 @@ interface LoginFormValues {
             },
         }))
         router.push('/payment')
+        
     }
   return (
     <>
-     <CheckoutWizard activeStep={1}/>
-     <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}>
-        <Form className='mx-auto max-w-screen-md'>
-            <h1 className='mb-4 text-xl'>Shipping Address</h1>
-            <div className='mb-4'>
-                <label htmlFor='fullName'>Full Name</label>
-                <Field className='w-full' id='fullName' name='fullName'  placeholder="Full Name" autoFocus />
-                <div className='text-red-500'>
-                <ErrorMessage name='fullName'/>
-                </div>
-            </div>
-            <div className='mb-4'>
-                <label htmlFor='fullName'>Address</label>
-                <Field className='w-full' id='address' name='address'  placeholder="Address" autoFocus />
-                <div className='text-red-500'>
-                <ErrorMessage name='address'/>
-                </div>
-                
-            </div>
-            <div className='mb-4'>
-                <label htmlFor='fullName'>City</label>
-                <Field className='w-full' id='city' name='city'  placeholder="City" autoFocus />
-                <div className='text-red-500'>
-                <ErrorMessage name='city'/>
-                </div>
-                
-            </div>
-            <div className='mb-4'>
-                <label htmlFor='fullName'>CEP</label>
-                <Field className='w-full' id='cep' name='cep'  placeholder="CEP" autoFocus />
-                <div className='text-red-500'>
-                <ErrorMessage name='cep'/>
-                </div>
-                
-            </div>
-            <div className='mb-4'>
-                <label htmlFor='fullName'>Country</label>
-                <Field className='w-full' id='country' name='country'  placeholder="Country" autoFocus />
-                <div className='text-red-500'>
-                <ErrorMessage name='country'/>
-                </div>
-                
-            </div>
-            <div className='mb-4 flex justify-between'>
-            <button type='submit' className='primary-button'>Next</button>
+      <CheckoutWizard activeStep={1}/>
+      <form className='mx-auto max-w-screen-md' onSubmit={handleSubmit(submitHandler)}>
+     <h1 className='mb-4 text-xl'>Shipping Address</h1> 
+     <div className='mb-4'>
+     <label htmlFor='fullName'>
+        Full Name:</label>
+        <input type="text" className='w-full' {...register('fullName', { required: true })} />
+        {errors.fullName && <span className='text-red-500'>Full name is required contain at least 3 characters</span>}
+     </div>   
+     
+        <div className='mb-4'>
+        <label htmlFor='address'>
+        Address:</label>
+        <input type="text" className='w-full' {...register('address', { required: true, minLength:3} )} />
+        {errors.address && <span className='text-red-500'>Address is required and must contain at least 3 characters</span>}
         </div>
+      
+        <div className='mb-4'>
+        <label htmlFor='city'>
+        City:</label>
+        <input type="text" className='w-full' {...register('city', { required: true })} />
+        {errors.city && <span className='text-red-500'>City is required</span>}
+        </div>
+      
+        <div className='mb-4'>
+        <label htmlFor='cep'>
+        CEP:
+        </label>
+        <input type="text" className='w-full' {...register('cep', { required: true, pattern: /^[0-9]{5}(?:-[0-9]{3})?$/i })} />
+        {errors.cep && <span className='text-red-500'>CEP is required and must be in the format 00000-000</span>}
+        </div>
+   
 
-        </Form>
-
-     </Formik>
+        <div className='mb-4'>
+        <label htmlFor='country'>
+        Country:
+        </label>
+        <input type="text" className='w-full' {...register('country', { required: true })} />
+        {errors.country && <span className='text-red-500'>Country is required</span>}
+        </div>
+      
+      
+      <button className='primary-button' type="submit">Submit</button>
+      </form>
     </>
   )
 }
