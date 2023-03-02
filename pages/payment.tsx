@@ -37,7 +37,7 @@ const PaymentScreen = () => {
                 paymentMethod: selectPaymentMethod,
             })
          );
-         router.push('/placeorder')
+         router.push('placeorder')
     }
     useEffect(():any => {
         if(!shippingAddress){
