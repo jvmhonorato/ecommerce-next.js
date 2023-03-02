@@ -124,6 +124,9 @@ VERIFICATION STOCK
 . in [slug].tsx in addToCartHandler() use axios to pull item quantity and create conditional to show toaster error
 . in index.tsx in addToCartHandler() use axios to pull item quantity and create conditional to show toaster error
 
+CREATE PLACE ORDER SCREEN 
+. create page/placeorder.tsx
+
 
 
 
