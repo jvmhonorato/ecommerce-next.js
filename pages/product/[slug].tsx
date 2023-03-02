@@ -1,25 +1,26 @@
 
 import React, { useContext } from "react";
 import { useRouter } from "next/router"
-import data from "@/utils/data";
 import Link from "next/link";
 import Image from "next/image";
 import { StoreContext } from '../../utils/Store'
+import db from "@/utils/db";
+import Product from "@/models/Product";
+import axios from "axios";
 
-const ProductScreen = () => {
+const ProductScreen = (props:any) => {
+    const { product } = props;
     const router = useRouter()
     const {state, dispatch } = useContext(StoreContext)
-    const { query } = useRouter();
-    const { slug } = query;
-    const product = data.products.find(x => x.slug === slug);
     if(!product){
       return <div>Not found</div>
 
     }
-    const addToCartHandler = () => {
+    const addToCartHandler = async() => {
         //logic to add same iten to Cart
         const existItem = state.cart.cartItems.find((x:any) => x.slug === product.slug)
         const quantity = existItem ? existItem.quantity + 1 : 1;
+        const { data } = await axios.get(`/api/products/${product._id}`);
 
         if (product.countInStock < quantity){
             alert('Sorry. Product is out of stock');
@@ -76,4 +77,20 @@ const ProductScreen = () => {
     )
 
 }  
+
+export async function getServerSideProps(context:any) {
+    const { params } = context;
+    const { slug } = params;
+
+    await db.connect();
+    const product = await  Product.findOne({slug}).lean();
+    await db.disconnect();
+    return {
+        props: {
+            product: product ? db.convertDocToObj(product) : null
+        }
+    }
+}
+
+
 export default ProductScreen
