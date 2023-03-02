@@ -1,6 +1,5 @@
 import ProductItem from '@/components/ProductItem';
 import Product from '@/models/Product';
-import data from '@/utils/data';
 import db from '@/utils/db';
 import React from 'react';
 
@@ -23,7 +22,7 @@ export async function getServerSideProps() {
   const products = await Product.find().lean();
   return {
     props: {
-      products
+      products: products.map(db.convertDocToObj)
     }
    }
   }
