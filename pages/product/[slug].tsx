@@ -7,6 +7,7 @@ import { StoreContext } from '../../utils/Store'
 import db from "@/utils/db";
 import Product from "@/models/Product";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const ProductScreen = (props:any) => {
     const { product } = props;
@@ -22,9 +23,9 @@ const ProductScreen = (props:any) => {
         const quantity = existItem ? existItem.quantity + 1 : 1;
         const { data } = await axios.get(`/api/products/${product._id}`);
 
-        if (product.countInStock < quantity){
-            alert('Sorry. Product is out of stock');
-            return;
+        if (data.countInStock < quantity){
+            
+            return toast.error('Sorry. Product is out of stock');
         }
         dispatch({ type: 'CART_ADD_ITEM', payload: {...product, quantity  }});
         router.push('/cart')

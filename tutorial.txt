@@ -111,10 +111,18 @@ CREATE SHIPPING SCREEN
 CREATE UNAUTHORIZED PAGE
 . create page/unauthorized.tsx to redirect when the user logged out.
 .in shipping.tsx add after cookies.set  
-router.push('/payment')
+  router.push('/payment')
 
 PAYMENT METHOD 
 . create page/payment.tsx 
+
+VERIFICATION STOCK 
+. create page/api/product/[id].tsx
+. in index.tsx add function addToCartHandler() to check if is product in stock and export to component/ProductItem.tsx
+. In index.tsx <ProductItem addToCartHandler={addToCartHandler} />
+. in cart.tsx in updateCartHandler() use axios to pull item quantity and create conditional to show toaster error ou success
+. in [slug].tsx in addToCartHandler() use axios to pull item quantity and create conditional to show toaster error
+. in index.tsx in addToCartHandler() use axios to pull item quantity and create conditional to show toaster error
 
 
 
