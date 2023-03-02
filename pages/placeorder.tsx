@@ -127,6 +127,9 @@ const PlaceorderScreen = () => {
                      <Link href='/cart'>Edit</Link>
                   </div>
                 </div>
+                
+            </div>
+            <div >
                 <div className='card p-5'>
                     <h2 className='mb-2 text-lg'>Order Sumary</h2>
                     <ul>
@@ -161,7 +164,7 @@ const PlaceorderScreen = () => {
                         </li>
                     </ul>
                 </div>
-            </div>
+             </div>
         </div>
      )
      }
