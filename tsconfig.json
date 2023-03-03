@@ -22,6 +22,6 @@
     }
   },
   "allowSytheticDefaultImports": "true",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/db.js", "utils/data.ts", "pages/api/auth/[...nextauth].js","pages/api/auth/[id].tsx", "utils/error.js", "pages/_app.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/db.js", "utils/data.ts", "pages/api/auth/[...nextauth].js","pages/api/auth/[id].tsx", "utils/error.js", "pages/_app.tsx", "pages/api/orders/index.js"],
   "exclude": ["node_modules"]
 }

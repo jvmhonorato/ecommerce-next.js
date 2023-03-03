@@ -76,7 +76,7 @@ const PlaceorderScreen = () => {
                         {shippingAddress.fullName}, {shippingAddress.address}, {''}
                         {shippingAddress.city},{shippingAddress.cep}, {shippingAddress.country}
                     </div>
-                    <div>
+                    <div className='text-indigo-800 pt-2' >
                         <Link href='/shipping'>Edit</Link>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ const PlaceorderScreen = () => {
                     <div>
                         {paymentMethod}
                     </div>
-                    <div>
+                    <div className='text-indigo-800 pt-2'>
                     <Link href='/payment'>Edit</Link>
                     </div>
                 </div>
@@ -123,7 +123,7 @@ const PlaceorderScreen = () => {
                   </tbody>
 
                   </table>
-                  <div>
+                  <div className='text-indigo-800 pt-2'>
                      <Link href='/cart'>Edit</Link>
                   </div>
                 </div>

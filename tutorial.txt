@@ -126,6 +126,8 @@ VERIFICATION STOCK
 
 CREATE PLACE ORDER SCREEN 
 . create page/placeorder.tsx
+. create page/api/orders/index.ts
+. create models/Order.ts 
 
 
 

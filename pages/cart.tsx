@@ -88,7 +88,8 @@ const CartScreen = () => {
                                 </tbody>
                             </table>
                         </div>
-                        <div className='card p-5 text-xl text-center'>
+                        <div >
+                            <div className='card p-5 text-xl text-center'>
                             <ul>
                                 <li>
                                     <div className='pb-3'>
@@ -103,7 +104,8 @@ const CartScreen = () => {
                                         Check Out
                                     </button>
                                 </li>
-                            </ul>            
+                            </ul>  
+                            </div>          
                         </div>
                     </div>
                   )}
