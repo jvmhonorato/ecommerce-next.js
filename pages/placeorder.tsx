@@ -73,8 +73,8 @@ const PlaceorderScreen = () => {
                 <div className='card p-5'>
                     <h2 className='mb-2 text-lg'>Shipping Address</h2>
                     <div>
-                        {shippingAddress.fullName}, {shippingAddress.address}, {''}
-                        {shippingAddress.city},{shippingAddress.cep}, {shippingAddress.country}
+                        {shippingAddress.fullName},{' '} {shippingAddress.address}, {' '}
+                        {shippingAddress.city},{' '}{shippingAddress.cep}, {' '}{shippingAddress.country}
                     </div>
                     <div className='text-indigo-800 pt-2' >
                         <Link href='/shipping'>Edit</Link>
