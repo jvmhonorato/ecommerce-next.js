@@ -129,6 +129,10 @@ CREATE PLACE ORDER SCREEN
 . create page/api/orders/index.ts
 . create models/Order.ts 
 
+CREATE ORDER SCREEN
+  . create page/api/[id].js
+  . create page/order/[id].tsx
+
 
 
 

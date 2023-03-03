@@ -1,7 +1,7 @@
 import User from "@/models/User";
 import db from "@/utils/db";
 import NextAuth from "next-auth/next";
-var bcrypt = require('bcryptjs');
+let bcrypt = require('bcryptjs');
 import  CredentialsProvider  from "next-auth/providers/credentials";
 
 export default NextAuth({
