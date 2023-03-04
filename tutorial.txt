@@ -130,7 +130,7 @@ CREATE PLACE ORDER SCREEN
 . create models/Order.ts 
 
 CREATE ORDER SCREEN
-  . create page/api/[id].js
+  . create page/api/[id]/index.js
   . create page/order/[id].tsx
 
 CREATE REGISTER SCREEN
@@ -142,6 +142,7 @@ CREATE API IN PAYPAL
 . create APP 
 . copy Client_ID and paste in .env
 . install: npm install @paypal/react-paypal-js
+. create api/keys/paypal.js 
 
 
 

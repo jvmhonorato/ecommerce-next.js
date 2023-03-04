@@ -14,7 +14,7 @@ const App = ({ Component, pageProps: {session, ...pageProps} }: CustomAppProps) 
   return (
   <SessionProvider session={session}>
     <StoreProvider>
-      <PayPalScriptProvider deferLoading={true}>
+      <PayPalScriptProvider options={SCRIPT_PROVIDER_OPTIONS} deferLoading={true}>
       {Component.auth ? (
         <Auth>
           <Layout>
@@ -33,6 +33,10 @@ const App = ({ Component, pageProps: {session, ...pageProps} }: CustomAppProps) 
    </SessionProvider>
   )
 }
+const SCRIPT_PROVIDER_OPTIONS = {
+	"client-id": "test",
+};
+
 
 function Auth({ children }:any){
   const router = useRouter();
