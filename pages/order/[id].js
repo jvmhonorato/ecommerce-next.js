@@ -1,29 +1,40 @@
 import { getError } from '@/utils/error';
+import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useReducer } from 'react'
+import React, { Children, useEffect, useReducer } from 'react'
 
 
-const reducer = (state:any, action:any) => {
+const reducer = (state, action) => {
      switch (action.type) {
-        case 'FECTH_REQUEST':
+         case 'FECTH_REQUEST':
             return {...state, loading: true , error: ''};
          case 'FECTH_SUCCESS':
             return {...state, loading:false, order:action.payload, error: ''}   
           case 'FECTH_FAIL':
             return {...state, loading:false, error:action.payload}  
+          case 'PAY_REQUEST':
+            return {...state, loadingPay:true};
+          case 'PAY_SUCCESS':
+                return {...state, loadingPay:false, successPay: true}  
+         case ' PAY_FAIL':
+            return {...state, loadingPay:false, errorPay: action.payload}
+          case 'PAY_RESET':
+            return {...state, loadingPay: false, successPay: false, errorPay: ''}  
             default:
                 state;
 
      }
 }
 const OrderScreen  = () => {
+    const [{isPending}, paypalDispatch] = usePayPalScriptReducer();
+
     const {query} = useRouter();
     const orderId = query.id;
 
 
-    const [{loading, error, order},
+    const [{loading, error, order, successPay, loadingPay},
          dispatch, ] = useReducer(reducer, {
         loading:true,
         order: {},
@@ -40,12 +51,70 @@ const OrderScreen  = () => {
             dispatch({type: 'FECTH_FAIL', payload: getError(err)})
          }
         };
-        if(!orderId || (order._id !== orderId)) {
+        if(!orderId || successPay || (order._id && order._id !== orderId)) {
             fetchOrder()
+            if (successPay){
+                dispatch({type: 'PAY_RESET'})
+            }
+        }else {
+            const loadPayalScript = async () => {
+               const {data: clientId} = await axios.get('/api/keys/paypal');
+               paypalDispatch({
+                type:'resetOptions',
+                value: {
+                    'client-id': clientId,
+                    currency: 'BRL'
+                },
+               });
+               paypalDispatch({ type:'setLoadingStatus', value:'pending'}); 
+            };
+            loadPayalScript();
         }
         
-    },[order, orderId]);
-    const {shippingAddress, paymentMethod, orderItems, itemsPrice, taxPrice, shippingPrice, totalPrice, isPaid, paidAt, isDelivered, deliveredAt} = order
+    },[order, orderId, paypalDispatch, successPay]);
+    const {shippingAddress,
+         paymentMethod,
+          orderItems,
+           itemsPrice,
+            taxPrice,
+             shippingPrice,
+              totalPrice,
+               isPaid,
+                paidAt,
+                isDelivered,
+                 deliveredAt} = order
+
+    const createOrder = (data, actions) => {
+        return actions.order.create({
+            purchase_units: [
+                {
+                    amount: { value: totalPrice },
+
+                },
+            ]
+        }).then((orderId)=> {
+            return orderId;
+        })
+    }
+    const onApprove = () => {
+        return  actions.order.capture().then(async function(details){
+            try {
+                dispatch({type: 'PAY_REQUEST'});
+                const { data } = await axios.put(
+                    `/api/orders/${order._id}/pay`,details 
+                );
+                dispatch({type: 'PAY_SUCCESS', payload: data});
+
+            }catch(err){
+                dispatch({type: 'PAY_FAIL', payload: getError(err)});
+                toast.error(getError(err));
+            }
+        });
+    }
+    const onError = (err) => {
+
+    }
+
   return (
     <>
          <h1 className='mb-4 text-xl'>{`Order ${orderId}`}</h1>
@@ -104,7 +173,7 @@ const OrderScreen  = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {orderItems.map((item:any)=> (
+                        {orderItems.map((item)=> (
                             <tr key={item._id} className='border-b'>
                              <td>
                                 <Link href={`/product/${item.slug}`}>
@@ -160,6 +229,20 @@ const OrderScreen  = () => {
                                     <div>R${totalPrice}</div>
                                 </div>
                              </li>
+                              {!isPaid && (
+                                <li>
+                                    {isPending ? (<div>Loading...</div>
+                                    ):(
+                                    <div className='w-full'>
+                                        <PayPalButtons
+                                        createOrder={createOrder}
+                                        onApprove={onApprove}
+                                        onError={onError}
+                                        ></PayPalButtons>
+                                    </div>)}
+                                    {loadingPay &&  <div>Loading...</div>}
+                                </li>
+                              )}
                            </ul>
                 </div>
             </div>

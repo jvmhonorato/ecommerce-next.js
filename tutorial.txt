@@ -137,6 +137,12 @@ CREATE REGISTER SCREEN
 . create page/register.tsx
 . create page/api/auth/signup.js
 
+CREATE API IN PAYPAL 
+. https://developer.paypal.com/dashboard/applications/sandbox
+. create APP 
+. copy Client_ID and paste in .env
+. install: npm install @paypal/react-paypal-js
+
 
 
 
