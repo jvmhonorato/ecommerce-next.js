@@ -133,6 +133,11 @@ CREATE ORDER SCREEN
   . create page/api/[id].js
   . create page/order/[id].tsx
 
+CREATE REGISTER SCREEN
+. create page/register.tsx
+. create page/api/auth/signup.js
+
+
 
 
 
