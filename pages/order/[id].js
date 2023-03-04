@@ -3,7 +3,7 @@ import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { Children, useEffect, useReducer } from 'react'
+import React, {  useEffect, useReducer } from 'react'
 
 
 const reducer = (state, action) => {
@@ -51,7 +51,7 @@ const OrderScreen  = () => {
             dispatch({type: 'FECTH_FAIL', payload: getError(err)})
          }
         };
-        if(!orderId || successPay || (order._id && order._id !== orderId)) {
+        if(!order._id || successPay || (order._id && order._id !== orderId)) {
             fetchOrder()
             if (successPay){
                 dispatch({type: 'PAY_RESET'})
