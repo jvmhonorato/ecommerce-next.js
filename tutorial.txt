@@ -144,6 +144,13 @@ CREATE API IN PAYPAL
 . install: npm install @paypal/react-paypal-js
 . create api/keys/paypal.js 
 
+CREATE ORDER HISTORY 
+. create page/order-history.tsx
+. create page/api/orders/history.js
+
+CREATE UPDATE USER PROFILE 
+. create page/profile.tsx
+
 
 
 
