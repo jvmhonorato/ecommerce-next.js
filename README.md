@@ -92,16 +92,16 @@ https://user-images.githubusercontent.com/101150943/222995813-305b56d9-9662-405b
 ## Features
 
 The main features of the application are:
- - Fill in the form with customer data
- - Give a note to the service
- - Show the property owner the data in a spreadsheet
+ - Auth register and login
+ - Integration system with Mongo DB
+ - Use Paypal API to mange payment of these application
 
 ## Links
   - Deploy on Vercel: Soon 
   - Repository: https://github.com/vituhonorato/outfit-store
-    - In case of sensitive bugs like security vulnerabilities, please contact
-      vituhonorato.89@gmail.com directly instead of using issue tracker. We value your effort
-      to improve the security and privacy of this project!
+  - In case of sensitive bugs like security vulnerabilities, please contact
+    vituhonorato.89@gmail.com directly instead of using issue tracker. We value your effort
+    to improve the security and privacy of this project!
 
   ## Versioning
 
