@@ -150,6 +150,7 @@ CREATE ORDER HISTORY
 
 CREATE UPDATE USER PROFILE 
 . create page/profile.tsx
+. create page/auth/update.ts
 
 
 
