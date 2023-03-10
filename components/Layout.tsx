@@ -31,7 +31,7 @@ const Layout = ({title, children}:any) => {
     return(
         <>
           <Head>
-                <title>{title ? title + '- Outfit Clothes':'Outfit Clothes'}</title>
+                <title>{title ? title + ' - Outfit Clothes':'Outfit Clothes'}</title>
                 <meta name="description" content="store of clothes"/>
                 <link rel="icon" href="/ecommerce2.ico"/>
             </Head>

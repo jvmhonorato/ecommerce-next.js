@@ -55,7 +55,7 @@ const ProfileScreen = () => {
                 className='w-full' 
                 id='email' 
                 autoFocus 
-                {...register('email', {required: 'Please enter email', pattern:{value:/^[a-zA-Z09_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i, message:'Please enter valid email format'     },})}
+                {...register('email', {required: 'Please enter email', pattern:{value:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i, message:'Please enter valid email format'     },})}
                 />
                 {errors.email && (<div className='text-red-500'>{errors.email.message}</div>)}
             </div>
