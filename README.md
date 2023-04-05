@@ -41,9 +41,9 @@ Here are the technologies used in this project.
   $ npm run start
   ```
 
-## How to use
 
-###  Main Page
+
+### E_COMMERCE MODEL APP
 
 ![foto1](https://user-images.githubusercontent.com/101150943/222996405-51d6bb1d-6c9c-45b3-93f5-dc28bc971a44.jpg)
 
