@@ -43,14 +43,14 @@ Here are the technologies used in this project.
 
 ## How to use
 
-### 1 - Main Page
+###  Main Page
 
 ![foto1](https://user-images.githubusercontent.com/101150943/222996405-51d6bb1d-6c9c-45b3-93f5-dc28bc971a44.jpg)
 
 
 
 
-### 2 - See in operation
+###  See in operation
 
 https://user-images.githubusercontent.com/101150943/222995813-305b56d9-9662-405b-b991-b9ce11745ad3.mp4
 
