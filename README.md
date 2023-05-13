@@ -1,4 +1,4 @@
-## Outfit Store
+## Outfit Store MODEL
 Ecommerce model 100% functional 
 
 
