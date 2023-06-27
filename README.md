@@ -2,7 +2,7 @@
 Ecommerce model 100% functional 
 
 
-## Technology 
+## Technologies
 
 Here are the technologies used in this project.
 
