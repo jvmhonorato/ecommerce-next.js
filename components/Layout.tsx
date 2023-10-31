@@ -71,9 +71,9 @@ const Layout = ({title, children}:any) => {
                                 </Menu.Item>
                                 <Menu.Item>
                                     
-                                        <a className='dropdown-link' href='/#' onClick={logoutClickHandler} >
+                                        <Link className='dropdown-link' href='/#' onClick={logoutClickHandler} >
                                             Logout
-                                        </a>
+                                        </Link>
                                         
                                     
                                 </Menu.Item>
