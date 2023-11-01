@@ -2,7 +2,7 @@
 Ecommerce model 100% functional 
 
 
-### Descktop Layout
+### Desktop Layout
 ![outfitpclayout2](https://github.com/vituhonorato/outfit-store/assets/101150943/49bc5841-a3fa-4fde-9402-7d016d51597a)
 
 
