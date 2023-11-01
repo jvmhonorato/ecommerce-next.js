@@ -13,17 +13,28 @@ Ecommerce model 100% functional
 
 Here are the technologies used in this project.
 
-* Next JS
-* React JS
-* Mongo DB
-* TailwindCSS
-* Paypal
+<div style="display: inline_block"><br/>
+  <img align="center" alt="jvmh-typescript" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
+  <img align="center" alt="jvmh-nextjs" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
+<img align="center" alt="jvmh-reactjs" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+ <img align="center" alt="jvmh-nodejs" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg" />
+<img align="center" alt="jvmh-mongodb" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg" />
+<img align="center" alt="jvmh-tailwindcss" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
+<img align="center" alt="jvmh-jest" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" />
+
+
+
+
+</div>
+
+
 
 ## Services Used
 
 * Github
 * Vercel
 * Mongo DB Atlas
+* PayPal
 
 ## Getting started
 
@@ -48,6 +59,25 @@ Here are the technologies used in this project.
   $ npm run start
   ```
 
+* To seed on data base
+```
+import Product from "@/models/Product";
+import User from "@/models/User";
+import data from "@/utils/data";
+import db from "../../utils/db"
+
+const handler = async (req:any, res:any) => {
+  await db.connect();
+  await User.deleteMany();
+  await User.insertMany(data.users);
+  await Product.deleteMany();
+  await Product.insertMany(data.products);
+  await db.disconnect();
+  res.send({message: 'seeded successfully'})
+
+};
+export default handler;
+```
 
 
 
