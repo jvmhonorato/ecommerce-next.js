@@ -12,7 +12,7 @@ import Cookies from "js-cookie";
 
 
 const Layout = ({title, children}:any) => {
-    const { status, data: session } = useSession();
+    const { status, data: session }:any = useSession();
     const { state, dispatch } = useContext(StoreContext)
     const { cart } = state
     const [cartItemsCount, setCartItemsCount] = useState(0)
