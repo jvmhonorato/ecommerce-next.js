@@ -11,7 +11,7 @@ Ecommerce model 100% functional
 
 ## Technologies
 
-Here are the technologies used in this project.
+
 
 <div style="display: inline_block"><br/>
   <img align="center" alt="jvmh-typescript" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
