@@ -8,6 +8,9 @@ import { signOut, useSession } from "next-auth/react";
 import { Menu } from '@headlessui/react'
 import DropdownLink from "./DropdownLink";
 import Cookies from "js-cookie";
+import { BsInstagram } from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
+import { GrCart} from "react-icons/gr";
 
 
 
@@ -44,13 +47,20 @@ const Layout = ({title, children}:any) => {
                     </Link>
                     <div className="flex"> 
                                     
-                    <Link href="/cart">
-                        <p className="p-2">Cart{cartItemsCount > 0 && (
-                            <span className="ml-1 rounded-full bg-red-600 px-2 text-xs font-bold text-white">
-                                {cartItemsCount}
-                             </span>
-                        )}</p>
-                    </Link>
+                    <Link href='/cart' className='p-2'>
+                <div className=' flex justify-between py-3'>
+                  <div className='hover:bg-rose p-2 rounded-full'>
+                  <GrCart></GrCart>
+                    </div>
+                    <div>
+                  {cart.cartItems.length > 0 && (
+                    <span className='ml-1 rounded-full bg-brown px-2 text-xs font-bold text-white'>{cartItemsCount}</span>
+                  )}
+                  </div>
+                  </div>
+                 </Link>
+
+                 
                     {status ===  'loading' ? (
                         ''
                         ) : session?.user ? (
@@ -98,9 +108,17 @@ const Layout = ({title, children}:any) => {
             <main className="container m-auto mt-4 px-4">
               {children}
             </main>
-            <footer className="flex h-10 justify-center items-center shadow-inner">
-                <p className="font-semibold"><span>Copyright</span> &copy; 2023 Outfit Store</p>
-             </footer>
+            <footer className='flex h-20 justify-between items-center shadow-inner bg-pink font-semibold '>
+          <div className='flex justify-between px-4'>
+          <span className='font-semibold'>Copyright </span> 
+           <p className='px-1'> &copy; </p>2023 Outfit Store
+          </div>
+          <div className='flex justify-between px-2'>
+            <Link className='flex px-1' href='https://www.instagram.com//'><BsInstagram/></Link>
+            <Link className='flex px-3' href='https://api.whatsapp.com/send?phone=5571999999999&text=Ol%C3%A1,%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20produto'><BsWhatsapp/></Link>
+          </div>
+      
+        </footer>
         </div>
         </>
     )
