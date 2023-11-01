@@ -69,6 +69,13 @@ const Layout = ({title, children}:any) => {
                                         Order History
                                     </DropdownLink>
                                 </Menu.Item>
+                                {session.user.isAdmin && (
+                            <Menu.Item>
+                            <DropdownLink className='dropdown-link' href="/admin/dashboard">
+                              Painel Admin
+                            </DropdownLink>
+                            </Menu.Item>
+                            )}
                                 <Menu.Item>
                                     
                                         <Link className='dropdown-link' href='/#' onClick={logoutClickHandler} >
