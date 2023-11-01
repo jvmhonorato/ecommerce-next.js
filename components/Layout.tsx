@@ -45,7 +45,7 @@ const Layout = ({title, children}:any) => {
                     <Link href="/">
                         <p className="text-lg pl-2 font-bold">Outfit Store</p>
                     </Link>
-                    <div className="flex"> 
+                    <div className="text-lg font-bold flex items-center"> 
                                     
                     <Link href='/cart' className='p-2'>
                 <div className=' flex justify-between py-3'>
