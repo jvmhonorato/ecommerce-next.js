@@ -36,7 +36,7 @@ Ecommerce model 100% functional
 * Vercel
 * Mongo DB Atlas
 * PayPal
-* Cloudnary
+* Cloudinary
 
 ## Getting started
 
