@@ -58,7 +58,7 @@ Ecommerce model 100% functional
   
 * To run the project.
 ```bash
-  $ npm run start
+  $ npm run dev
   ```
 
 * To seed on data base
