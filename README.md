@@ -2,7 +2,7 @@
 Ecommerce model 100% functional 
 
 
-### Descktop Layout
+### Desktop Layout
 ![outfitpclayout2](https://github.com/vituhonorato/outfit-store/assets/101150943/49bc5841-a3fa-4fde-9402-7d016d51597a)
 
 
@@ -19,6 +19,7 @@ Ecommerce model 100% functional
 <img align="center" alt="jvmh-reactjs" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
  <img align="center" alt="jvmh-nodejs" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg" />
 <img align="center" alt="jvmh-mongodb" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain.svg" />
+  <img align="center" alt="jvmh-cloudnary" height="50" width="50" src="https://res.cloudinary.com/diypdepuw/image/upload/v1699044264/cloudinary_ckujxh.png" />
 <img align="center" alt="jvmh-tailwindcss" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
 <img align="center" alt="jvmh-jest" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" />
 
@@ -35,6 +36,7 @@ Ecommerce model 100% functional
 * Vercel
 * Mongo DB Atlas
 * PayPal
+* Cloudinary
 
 ## Getting started
 
@@ -56,7 +58,7 @@ Ecommerce model 100% functional
   
 * To run the project.
 ```bash
-  $ npm run start
+  $ npm run dev
   ```
 
 * To seed on data base
