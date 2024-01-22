@@ -12,13 +12,16 @@ import React from "react";
 const ProductItem = ({product, addToCartHandler}:any) => {
     
     return(
-        <div className="card">
+        <div className="card bg-white bg-opacity-30 hover:bg-opacity-70">
+            <div className='flex flex-col items-center justify-center p-5' >
             <Link href={`/product/${product.slug}`}>
                 <img src={product.image}
                 alt={product.name}
                 className="rounded shadow"
                 />
             </Link>
+            </div>
+          
 
             <div className="flex flex-col items-center justify-center p-5">
              <Link href={`/product/${product.slug}`}>
