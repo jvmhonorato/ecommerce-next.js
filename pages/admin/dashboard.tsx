@@ -100,7 +100,7 @@ useEffect(()=>{
       };
       
   return (
-    <Layout title='Painel Admin'>
+    <>
         <div className='grid md:grid-cols-4 md:gap-5'>
             <div>
                 <ul>
@@ -161,7 +161,7 @@ useEffect(()=>{
                  )}   
             </div>
         </div>
-    </Layout>
+    </>
   )
 }
 
