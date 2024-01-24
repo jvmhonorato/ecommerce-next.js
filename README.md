@@ -9,6 +9,9 @@ Ecommerce model 100% functional
 ### Smartphone Layout
 ![outfitsplayout](https://github.com/vituhonorato/outfit-store/assets/101150943/2f4f9cb6-5b37-4e50-92c1-44100fddcfd2)
 
+### Dashborad
+![dashboarddesktop](https://github.com/vituhonorato/remix-crud/assets/101150943/22ac6bc8-a53a-4da8-b587-283e1fda29d4)
+
 ## Technologies
 
 
@@ -103,7 +106,7 @@ The main features of the application are:
 
   ## Versioning
 
-  1.0.0.0
+  2.0.0.0
 
 
   ## Authors
