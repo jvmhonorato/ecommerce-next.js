@@ -114,7 +114,7 @@ const Layout = ({title, children}:any) => {
            <p className='px-1'> &copy; </p>2023 Outfit Store
           </div>
           <div className='flex justify-between px-2'>
-            <Link className='flex px-1' href='https://www.instagram.com//'><BsInstagram/></Link>
+            <Link className='flex px-1' href='https://www.instagram.com/'><BsInstagram/></Link>
             <Link className='flex px-3' href='https://api.whatsapp.com/send?phone=5571999999999&text=Ol%C3%A1,%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20produto'><BsWhatsapp/></Link>
           </div>
       
