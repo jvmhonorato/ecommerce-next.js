@@ -9,11 +9,11 @@
 <img align="center" alt="jvmh-jest" height="50" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" />
 
 
-# Next.js E-commerce Model with Formik
+# Next.js E-commerce Model 
 
 ## Overview
 
-The Next.js E-commerce Model with Formik is a fully functional e-commerce application model built with Next.js, Formik, and several other libraries and technologies. It provides developers with a solid foundation to kickstart the development of their e-commerce projects.
+The Next.js E-commerce Model with is a fully functional e-commerce application model built with Next.js, Formik, and several other libraries and technologies. It provides developers with a solid foundation to kickstart the development of their e-commerce projects.
 
 ## Features
 
