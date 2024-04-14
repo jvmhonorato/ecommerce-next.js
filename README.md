@@ -11,6 +11,9 @@
 
 # Next.js E-commerce Model 
 
+
+![outfit-layout](https://github.com/Honorato-Dev/tech-quiz/assets/101150943/b6ab601e-8db0-4e13-9120-e7c129b13606)
+
 ## Overview
 
 The Next.js E-commerce Model with is a fully functional e-commerce application model built with Next.js, Formik, and several other libraries and technologies. It provides developers with a solid foundation to kickstart the development of their e-commerce projects.
@@ -58,25 +61,6 @@ The Next.js E-commerce Model with is a fully functional e-commerce application m
 3. **Testing and Deployment:**
    - Test the application thoroughly to ensure functionality and performance.
    - Deploy the application to your preferred hosting platform, configuring deployment settings as necessary.
-
-
-
-
-### Desktop Layout
-![outfitpclayout2](https://github.com/vituhonorato/outfit-store/assets/101150943/49bc5841-a3fa-4fde-9402-7d016d51597a)
-
-
-### Smartphone Layout
-![outfitsplayout](https://github.com/vituhonorato/outfit-store/assets/101150943/2f4f9cb6-5b37-4e50-92c1-44100fddcfd2)
-
-### Dashboard
-![dashboarddesktop](https://github.com/vituhonorato/remix-crud/assets/101150943/22ac6bc8-a53a-4da8-b587-283e1fda29d4)
-
-
-
-
-
-
 
 
 
