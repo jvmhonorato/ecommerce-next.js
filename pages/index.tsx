@@ -24,9 +24,9 @@ const Home = ({products}:{products:any}) => {
      
 }
   return (
-    <div className='ml-4 mt-11 '> 
+    <div className='flex flex-col mt-11 '> 
      <h1 className="text-3xl font-bold ">Home Page</h1>
-     <div className='flex grid grid-cols-1 gap-1 gap-x-11 md:grid-cols-3 lg:grid-cols-4 mt-24 mb-16'>
+     <div className='ml-4 grid grid-cols-1 gap-1 gap-x-16 md:grid-cols-3 lg:grid-cols-4 mt-24 mb-16'>
       {products.map((product:any)=> (
         <ProductItem addToCartHandler={addToCartHandler} product={product} key={product.slug}></ProductItem>
       ))}
