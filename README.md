@@ -12,7 +12,7 @@
 # Next.js E-commerce Model 
 
 
-![outfit-layout](https://github.com/Honorato-Dev/tech-quiz/assets/101150943/b6ab601e-8db0-4e13-9120-e7c129b13606)
+![outfit-layout-2](https://github.com/Honorato-Dev/outfit-store/assets/101150943/41e53801-50f6-4285-b873-9bc566c4a319)
 
 ## Overview
 
