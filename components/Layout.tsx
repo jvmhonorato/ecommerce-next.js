@@ -10,11 +10,16 @@ import DropdownLink from "./DropdownLink";
 import Cookies from "js-cookie";
 import { BsInstagram } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
-import { GrCart} from "react-icons/gr";
+
+import { FaCartArrowDown } from "react-icons/fa";
+import { useTheme } from 'next-themes'
+import ThemeToogle from "./ThemeToogle";
 
 
 
 const Layout = ({title, children}:any) => {
+  // eslint-disable-next-line no-unused-vars
+  const { theme, setTheme } = useTheme()
     const { status, data: session }:any = useSession();
     const { state, dispatch } = useContext(StoreContext)
     const { cart } = state
@@ -40,17 +45,18 @@ const Layout = ({title, children}:any) => {
             </Head>
             <ToastContainer position='bottom-center' limit={1} />
          <div className="flex min-h-screen  flex-col justify-between">
+         
             <header>
                 <nav className="flex h-12 justify-between shadow-md items-center">
                     <Link href="/">
-                        <p className="text-lg pl-2 font-bold">Outfit Store</p>
+                        <p className="text-lg ml-3 pl-2 font-bold">Outfit Store</p>
                     </Link>
                     <div className="text-lg font-bold flex items-center"> 
-                                    
+                    <ThemeToogle/>
                     <Link href='/cart' className='p-2'>
                 <div className=' flex justify-between py-3'>
                   <div className='hover:bg-rose p-2 rounded-full'>
-                  <GrCart></GrCart>
+                  <FaCartArrowDown />
                     </div>
                     <div>
                   {cart.cartItems.length > 0 && (
@@ -58,13 +64,14 @@ const Layout = ({title, children}:any) => {
                   )}
                   </div>
                   </div>
+                  
                  </Link>
 
                  
                     {status ===  'loading' ? (
                         ''
                         ) : session?.user ? (
-                           <Menu as='div' className='relative inline-block p-2'>
+                           <Menu as='div' className='relative inline-block mr-3 p-2'>
                              <Menu.Button className='text-blue-600'>
                                 {session.user.name}
                              </Menu.Button>

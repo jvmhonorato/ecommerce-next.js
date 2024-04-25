@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import { SessionProvider, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import type { NextComponentType  } from 'next'
+import { ThemeProvider } from 'next-themes'
 import { PayPalScriptProvider } from '@paypal/react-paypal-js'
 type CustomAppProps = AppProps & {
   Component: NextComponentType & {auth?: boolean} // add auth type
@@ -12,6 +13,7 @@ type CustomAppProps = AppProps & {
 
 const App = ({ Component, pageProps: {session, ...pageProps} }: CustomAppProps) => {
   return (
+    <ThemeProvider>
   <SessionProvider session={session}>
     <StoreProvider>
       <PayPalScriptProvider options={SCRIPT_PROVIDER_OPTIONS} deferLoading={true}>
@@ -31,6 +33,7 @@ const App = ({ Component, pageProps: {session, ...pageProps} }: CustomAppProps) 
       </PayPalScriptProvider>
     </StoreProvider>
    </SessionProvider>
+   </ThemeProvider>
   )
 }
 const SCRIPT_PROVIDER_OPTIONS = {

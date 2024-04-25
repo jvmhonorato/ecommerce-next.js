@@ -7,7 +7,7 @@ const handler = async (req, res) => {
     if (!token) {
         return res.status(404).send( 'signin required')
     }
-    console.log('token:',token)
+    
 
     const   user  = token;
     if (!user || !user._id) {
