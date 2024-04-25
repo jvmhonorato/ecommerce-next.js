@@ -44,7 +44,7 @@ const Layout = ({title, children}:any) => {
                 <link rel="icon" href="/ecommerce2.ico"/>
             </Head>
             <ToastContainer position='bottom-center' limit={1} />
-         <div className="flex min-h-screen  flex-col justify-between">
+         <div className=" flex min-h-screen  flex-col justify-between">
          
             <header>
                 <nav className="flex h-12 justify-between shadow-md items-center">
