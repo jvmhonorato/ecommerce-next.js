@@ -10,6 +10,7 @@
 
 
 # Next.js E-commerce Model 
+![outfit-layout](https://github.com/Honorato-Dev/outfit-store/assets/101150943/6336c562-a07b-41da-b587-77a8d1b61269)
 
 
 
