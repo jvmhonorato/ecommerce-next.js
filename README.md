@@ -14,6 +14,7 @@
 
 ![outfit-layout-2](https://github.com/Honorato-Dev/outfit-store/assets/101150943/41e53801-50f6-4285-b873-9bc566c4a319)
 
+Try it : https://outfit-store-alpha.vercel.app/
 ## Overview
 
 The Next.js E-commerce Model with is a fully functional e-commerce application model built with Next.js, Formik, and several other libraries and technologies. It provides developers with a solid foundation to kickstart the development of their e-commerce projects.
