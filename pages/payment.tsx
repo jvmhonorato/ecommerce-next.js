@@ -6,15 +6,8 @@ import { StoreContext } from '@/utils/Store';
 import { toast } from 'react-toastify';
 import Cookies from 'js-cookie';
 
-interface LoginFormValues {
-    paymentMethod?: string;
-    otherProp?: any;
-  }
-  
-  const initialValues: LoginFormValues = {
-    paymentMethod: '',
-  };
-  
+
+ 
 
 const PaymentScreen = () => {
     const [ selectPaymentMethod, setSelectedPaymentMethod ] = useState('')

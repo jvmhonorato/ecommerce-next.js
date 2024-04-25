@@ -30,6 +30,7 @@ const PlaceorderScreen = () => {
     },[paymentMethod, router])
     
     const [loading, setLoading] = useState(false)
+    
     const placeOrderHandler = async () => {
         try{
             setLoading(true);

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, {  useEffect, useReducer } from 'react'
+import { toast } from 'react-toastify';
 
 
 const reducer = (state, action) => {
@@ -96,7 +97,7 @@ const OrderScreen  = () => {
             return orderId;
         })
     }
-    const onApprove = () => {
+    const onApprove = (data, actions) => {
         return  actions.order.capture().then(async function(details){
             try {
                 dispatch({type: 'PAY_REQUEST'});
@@ -111,7 +112,7 @@ const OrderScreen  = () => {
             }
         });
     }
-    const onError = (err) => {
+    const onError = () => {
 
     }
 
